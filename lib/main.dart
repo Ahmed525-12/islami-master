@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:islami/homescree.dart';
 import 'package:islami/screens/ayat_widget.dart';
+import 'package:islami/screens/hadethconten.dart';
 import 'package:islami/themes.dart';
 
 void main() {
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
       routes: {
         HomePage.routeName: (context) => HomePage(),
         AyaatWidget.routename: (context) => AyaatWidget(),
+        Hadtehconten.routename:(context) => Hadtehconten()
       },
       initialRoute: HomePage.routeName,
     );
