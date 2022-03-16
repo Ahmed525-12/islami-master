@@ -11,12 +11,19 @@ class Themesd {
         ),
         backgroundColor: Colors.transparent,
         elevation: 0),
-    textTheme: TextTheme(
+    textTheme: const TextTheme(
         headline1: TextStyle(
       color: Color.fromRGBO(36, 36, 36, 1.0),
       fontSize: 30,
       fontWeight: FontWeight.bold,
-    )),
+    ),
+    subtitle1: TextStyle(
+       color: Color.fromRGBO(36, 36, 36, 1.0),
+      fontSize: 20,
+      fontWeight: FontWeight.bold,
+    )
+    
+    ),
     primaryColor: Color.fromRGBO(183, 147, 95, 1.0),
   );
 }
