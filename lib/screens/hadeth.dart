@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami/screens/hdeathname.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class HadethPage extends StatefulWidget {
 
   HadethPage({Key? key}) : super(key: key);
@@ -26,7 +26,7 @@ class _HadethPageState extends State<HadethPage> {
           color: Theme.of(context).primaryColor,
         ),
         Text(
-          "الأحاديث ",
+          AppLocalizations.of(context)!.ahdeth,
           style: Theme.of(context).textTheme.headline1,
         ),
         Divider(

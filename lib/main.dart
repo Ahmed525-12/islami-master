@@ -3,7 +3,8 @@ import 'package:islami/homescree.dart';
 import 'package:islami/screens/ayat_widget.dart';
 import 'package:islami/screens/hadethconten.dart';
 import 'package:islami/themes.dart';
-
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -15,7 +16,18 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      localizationsDelegates: [
+            AppLocalizations.delegate, // Add this line
+
+    GlobalMaterialLocalizations.delegate,
+    GlobalWidgetsLocalizations.delegate,
+    GlobalCupertinoLocalizations.delegate,
+  ],
+  supportedLocales: [
+    Locale('en'), // English, no country code
+    Locale('ar'), // Spanish, no country code
+  ],
+  // locale:Locale('ar') ,
       theme: Themesd.lighttheme,
       debugShowCheckedModeBanner: false,
       routes: {
