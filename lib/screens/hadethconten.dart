@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:islami/provider/themeset.dart';
 import 'package:islami/screens/hadeth.dart';
+import 'package:provider/provider.dart';
+
+import '../seteeings/setteings_tab.dart';
 
 class Hadtehconten extends StatelessWidget {
   static const routename = "hadethcontent";
@@ -8,11 +12,16 @@ class Hadtehconten extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+        var provider = Provider.of<Themeprovider>(context);
+
     Hadeth hadeth = ModalRoute.of(context)!.settings.arguments as Hadeth;
     versess = hadeth.content;
     return Stack(
       children: [
         Image.asset(
+          provider.isDark()?
+          "assets/img/darkheader.png"
+          :
           "assets/img/bg.png",
           width: double.infinity,
           fit: BoxFit.fill,
@@ -24,6 +33,13 @@ class Hadtehconten extends StatelessWidget {
               style: Theme.of(context).textTheme.headline1,
             ),
             centerTitle: true,
+             actions: [
+              IconButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, SeteeingsTab.routename);
+                  },
+                  icon: Icon(Icons.settings))
+            ],
           ),
           body: versess.length == 0
               ? const Center(child: CircularProgressIndicator.adaptive())

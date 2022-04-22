@@ -1,9 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:islami/screens/souraname.dart';
-
-class QuranPage extends StatelessWidget {
-  QuranPage({Key? key}) : super(key: key);
-  List<Map<String, String>> suraList= [
+List<Map<String, String>> suraList= [
 {'name':'الفاتحه', 'ayat':'7'},
 {'name':'البقرة', 'ayat':'286'},
 {'name':'آل عمران', 'ayat':'200'},
@@ -119,40 +114,3 @@ class QuranPage extends StatelessWidget {
 {'name':'الفلق', 'ayat':'5'},
 {'name':'الناس', 'ayat':'6'},
 ];
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Center(child: Image.asset("assets/img/header.png")),
-        ),
-
-
-        Text("Soura Name",          style: Theme.of(context).textTheme.headline3,
-),
-
-   Divider(
-                    thickness: 3,
-                    color: Theme.of(context).primaryColor,
-                  ),
-      
-        Expanded(
-          
-            child: ListView.separated(
-                itemBuilder: (context, index) {
-                  return SouraNamedet('${suraList[index]['name']}', index,'${suraList[index]['ayat']}');
-                },
-                separatorBuilder: (context, index) {
-                  return Container(
-                    height: 1,
-                    color: Theme.of(context).primaryColor,
-                  );
-                },
-                itemCount: suraList.length))
-      ],
-    );
-  }
-}

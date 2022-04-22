@@ -21,13 +21,10 @@ class _HadethPageState extends State<HadethPage> {
     return Column(
       children: [
         Center(child: Image.asset("assets/img/hadetheader.png")),
-        Divider(
-          thickness: 3,
-          color: Theme.of(context).primaryColor,
-        ),
+    
         Text(
           AppLocalizations.of(context)!.ahdeth,
-          style: Theme.of(context).textTheme.headline1,
+          style: Theme.of(context).textTheme.headline3,
         ),
         Divider(
           thickness: 3,
@@ -40,7 +37,7 @@ class _HadethPageState extends State<HadethPage> {
                 },
                 separatorBuilder: (context, index) {
                   return Divider(
-                    thickness: 3,
+                    thickness: 1,
                     color: Theme.of(context).primaryColor,
                   );
                 },

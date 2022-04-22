@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:islami/provider/themeset.dart';
 import 'package:islami/screens/hadeth.dart';
 import 'package:islami/screens/quran_tab.dart';
 import 'package:islami/screens/radio.dart';
 import 'package:islami/screens/tsbeha.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:islami/seteeings/setteings_tab.dart';
+import 'package:islami/themes.dart';
+import 'package:provider/provider.dart';
+
 class HomePage extends StatefulWidget {
   static const String routeName = "home";
 
@@ -14,14 +19,15 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int currentIndex = 2;
+  int currentIndex = 3;
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<Themeprovider>(context);
     return Stack(
       children: [
         Image.asset(
-          "assets/img/bg.png",
+          provider.isDark() ? "assets/img/darkheader.png" : "assets/img/bg.png",
           width: double.infinity,
           fit: BoxFit.fill,
         ),
@@ -32,6 +38,13 @@ class _HomePageState extends State<HomePage> {
               style: Theme.of(context).textTheme.headline1,
             ),
             centerTitle: true,
+            actions: [
+              IconButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, SeteeingsTab.routename);
+                  },
+                  icon: Icon(Icons.settings))
+            ],
           ),
           body: Padding(
             padding: const EdgeInsets.all(8.0),
@@ -74,7 +87,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   var tabs = [
-    RadioPage(),
+    const RadioPage(),
     TsbehaPage(),
     HadethPage(),
     QuranPage(),

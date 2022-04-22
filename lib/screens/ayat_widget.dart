@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:islami/provider/themeset.dart';
+import 'package:provider/provider.dart';
+
+import '../seteeings/setteings_tab.dart';
 
 class AyaatWidget extends StatefulWidget {
   static const String routename = "Ayaat";
@@ -15,11 +19,16 @@ class _AyaatWidgetState extends State<AyaatWidget> {
 
   @override
   Widget build(BuildContext context) {
+        var provider = Provider.of<Themeprovider>(context);
+
     var args = ModalRoute.of(context)?.settings.arguments as Ayaatargs;
     if (versess.length == 0) loadFile("${args.index + 1}");
     return Stack(
       children: [
         Image.asset(
+           provider.isDark()?
+          "assets/img/darkheader.png"
+          :
           "assets/img/bg.png",
           width: double.infinity,
           fit: BoxFit.fill,
@@ -31,6 +40,13 @@ class _AyaatWidgetState extends State<AyaatWidget> {
               style: Theme.of(context).textTheme.headline1,
             ),
             centerTitle: true,
+             actions: [
+              IconButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, SeteeingsTab.routename);
+                  },
+                  icon: Icon(Icons.settings))
+            ],
           ),
           body: versess.length == 0
               ? Center(child: CircularProgressIndicator.adaptive())
