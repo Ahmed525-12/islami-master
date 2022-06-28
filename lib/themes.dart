@@ -37,8 +37,9 @@ class Themesd {
       fontWeight: FontWeight.bold,
     ),
     
-    ),
-
+    ),  iconTheme:  IconThemeData(
+          color: colorBlack,
+        ),
        elevatedButtonTheme: ElevatedButtonThemeData(style: ButtonStyle(
       backgroundColor:  MaterialStateProperty.all(Color.fromRGBO(183, 147, 95, 1.0)),
       
@@ -83,6 +84,9 @@ headline3: TextStyle(
       backgroundColor:  MaterialStateProperty.all(colorGold)
     )),
     primaryColor:  darkparyamry,
+      iconTheme:  IconThemeData(
+          color: Colors.white,
+        ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(unselectedItemColor: Colors.white,selectedItemColor:Color.fromARGB(255, 255, 170, 11) )
   );
 }
