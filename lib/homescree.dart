@@ -75,6 +75,7 @@ class _HomePageState extends State<HomePage> {
                 backgroundColor: Theme.of(context).primaryColor,
               ),
               BottomNavigationBarItem(
+                
                 icon: ImageIcon(AssetImage("assets/img/quran.png")),
                 label: "Quran",
                 backgroundColor: Theme.of(context).primaryColor,
